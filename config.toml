@@ -61,8 +61,8 @@ file_dir="static/file" #文件保存路径
 [Aliyun]
 IsUpload =true #是否开启上传到阿里云OSS
 Endpoint="oss-cn-hangzhou.aliyuncs.com" #阿里云Endpoint（地域节点）
-AccessKeyId="LTAI5tESLtF2aggURZbNKdND" #阿里云OSS AccessKeyId
-AccessKeySecret="7c7oi8BwysQEiHArapl4mNbkuHNtBB" #阿里云OSS AccessKeySecret
+AccessKeyId="LTAI5tESLt**aggURZbNKdND" #阿里云OSS AccessKeyId
+AccessKeySecret="7c7oi8Bwys**iHArapl4mNbkuHNtBB" #阿里云OSS AccessKeySecret
 Region="oss-cn-hangzhou" #阿里云OSS Region
 Bucket="laozhu1986" #阿里云OSS Bucket
 
