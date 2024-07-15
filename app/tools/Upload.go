@@ -117,7 +117,11 @@ func File_To_Pic(r *ghttp.Request, mFile *ghttp.UploadFile, mFile_name string, m
 		Return_Status(r, nil, "400", "文件写入失败，请检查文件是否正确")
 		return
 	}
-	HttpPath := g.Cfg().GetString("Domain.host") + mFile_path + mFile_name
-	Return_Status(r, g.Map{"mFile_path": HttpPath}, "", "")
+	//返回图片地址和图片名称
+	mReturn := g.Map{
+		"file_dir":  g.Cfg().GetString("Domain.host") + mFile_path + mFile_name,
+		"file_name": mFile_name,
+	}
+	Return_Status(r, mReturn, "", "")
 	return
 }

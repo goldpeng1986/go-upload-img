@@ -20,11 +20,12 @@
 2.  返回结果：
 ```
  {
-   "code": "200",
-   "data": {
-   "mFile_path": "http://127.0.0.1:8080/static/file/20240715/44.png"
-   },
-   "msg": "success"
-   }
+    "code": "200",
+    "data": {
+        "file_dir": "http://127.0.0.1:8080/static/file/20240715/44.png",
+        "file_name": "44.png"
+    },
+    "msg": "success"
+}
 ```
 3.  完成
