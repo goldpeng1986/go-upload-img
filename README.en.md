@@ -1,36 +1,32 @@
 # go-upload-img
-
-#### Description
-非常方便的上传图片模块，上传到本地和阿里云OSS、七牛云、腾讯云
-
+#### Introduction
+Deployment is very convenient and supports uploading images and various files to local storage, Alibaba Cloud OSS, Qiniu Cloud, and Tencent Cloud.
 #### Software Architecture
-Software architecture description
+Designed based on the Goframe framework, this module supports uploading images and files. It is recommended to deploy it separately and request it via POST or GET methods, facilitating secondary development in the future. Currently, local uploads and Alibaba Cloud OSS uploads are completed.
+#### Installation tutorial
+1. Download the code remotely, for example: `git clone https://gitee.com/gogokit/go-upload-img.git`
+2. Set up the configuration file, for example: `config.toml`
+3. Generate the binary file or exe file, for example: `go build -o ./linux_amd64/main main.go`
+4. Deploy on BaoTa, configure the configuration file, and start it.
+#### Usage Instructions
+1. Access the address remotely or internally: `http://127.0.0.1:8080/api/upload_img`
+2. Return result:
+```
+{
+"code": "200",
+"data": {
+"img_dir": " http://127.0.0.1:8080/static/file/20240715/44.png ",
+"img_name": "44.png"
+},
+"msg": "success"
+}
+```
+3.  Done
 
-#### Installation
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Instructions
-
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### Contribution
-
-1.  Fork the repository
-2.  Create Feat_xxx branch
-3.  Commit your code
-4.  Create Pull Request
-
-
-#### Gitee Feature
-
-1.  You can use Readme\_XXX.md to support different languages, such as Readme\_en.md, Readme\_zh.md
-2.  Gitee blog [blog.gitee.com](https://blog.gitee.com)
-3.  Explore open source project [https://gitee.com/explore](https://gitee.com/explore)
-4.  The most valuable open source project [GVP](https://gitee.com/gvp)
-5.  The manual of Gitee [https://gitee.com/help](https://gitee.com/help)
-6.  The most popular members  [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### Progress
+| Module    | Status  | Notes |
+|-------|-----|----|
+| Image Upload  | Completed |    |
+| File Upload  | Completed |    |
+| Alibaba Cloud Upload | Completed |    |
+| Qiniu Cloud Upload | Not Started |    |
