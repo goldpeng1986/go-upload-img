@@ -1,4 +1,6 @@
 # go-upload-img
+#### Language
+English | [中文](README.md)
 #### Introduction
 Deployment is very convenient and supports uploading images and various files to local storage, Alibaba Cloud OSS, Qiniu Cloud, and Tencent Cloud.
 #### Software Architecture
