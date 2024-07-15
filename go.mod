@@ -3,6 +3,7 @@ module go-upload-img
 go 1.22
 
 require (
+	github.com/aliyun/aliyun-oss-go-sdk v3.0.2+incompatible
 	github.com/eclipse/paho.mqtt.golang v1.4.3
 	github.com/gogf/gcache-adapter v0.1.2
 	github.com/gogf/gf v1.16.9
@@ -36,6 +37,7 @@ require (
 	golang.org/x/net v0.20.0 // indirect
 	golang.org/x/sys v0.16.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
+	golang.org/x/time v0.5.0 // indirect
 	gopkg.in/check.v1 v1.0.0-20200227125254-8fa46927fb4f // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

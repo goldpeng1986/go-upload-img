@@ -19,7 +19,6 @@ func main() {
 	GroupAPI := s.Group("/api", func(group *ghttp.RouterGroup) {
 		group.Middleware(MiddlewareCORS)
 	})
-
 	//上传base64图片
 	GroupAPI.ALL("/upload_img", controller.Upload_Base64)
 	//上传文件

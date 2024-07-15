@@ -2,7 +2,6 @@ package tools
 
 import (
 	"encoding/base64"
-	"fmt"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
 	"github.com/gogf/gf/os/gfile"
@@ -15,6 +14,7 @@ import (
 func Base64_To_Pic(r *ghttp.Request, mImg_base64 string, mImg_name string, mImg_path string) {
 	//获取当前目录
 	mDir, _ := os.Getwd()
+	mDir = mDir + "/"
 	//判断图片名称是否为空
 	if g.IsEmpty(mImg_name) {
 		mImg_name = Get_Ymdhis() + Get_Random_Int(4) + ".jpg" //默认jpg格式
@@ -68,6 +68,13 @@ func Base64_To_Pic(r *ghttp.Request, mImg_base64 string, mImg_name string, mImg_
 		Return_Status(r, nil, "205", "刷新文件缓存时出错，请检查磁盘权限")
 		return
 	}
+	//判断是否上传到阿里云
+	if g.Cfg().GetBool("Aliyun.IsUpload") {
+		mBool := Ali_Upload(r, mImg_path+mImg_name)
+		if !mBool {
+			return
+		}
+	}
 	//返回图片地址和图片名称
 	mReturn := g.Map{
 		"img_dir":  g.Cfg().GetString("Domain.host") + mImg_path + mImg_name,
@@ -85,6 +92,7 @@ func File_To_Pic(r *ghttp.Request, mFile *ghttp.UploadFile, mFile_name string, m
 	defer mFileReader.Close()
 	//创建目录
 	mDir, _ := os.Getwd() //获取绝对路径
+	mDir = mDir + "/"
 	//判断图片路径是否为空
 	if g.IsEmpty(mFile_path) {
 		mFile_path = g.Cfg().GetString("Domain.file_dir") + "/" + Get_Ymd() + "/"
@@ -104,7 +112,6 @@ func File_To_Pic(r *ghttp.Request, mFile *ghttp.UploadFile, mFile_name string, m
 		mFile_name = mFile.Filename
 	}
 	// 打开文件以写入
-	fmt.Println("dir:", mDir+mFile_path+mFile_name)
 	file, err := os.Create(mDir + mFile_path + mFile_name)
 	if err != nil {
 		Return_Status(r, nil, "400", "创建文件失败，请设置上级目录权限")
@@ -116,6 +123,13 @@ func File_To_Pic(r *ghttp.Request, mFile *ghttp.UploadFile, mFile_name string, m
 	if err != nil {
 		Return_Status(r, nil, "400", "文件写入失败，请检查文件是否正确")
 		return
+	}
+	//判断是否上传到阿里云
+	if g.Cfg().GetBool("Aliyun.IsUpload") {
+		mBool := Ali_Upload(r, mFile_path+mFile_name)
+		if !mBool {
+			return
+		}
 	}
 	//返回图片地址和图片名称
 	mReturn := g.Map{

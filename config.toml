@@ -52,12 +52,17 @@ graceful            = true              # 是否开启平滑重启特性，开�
 
 # 域名配置
 [Domain]
-host="http://127.0.0.1:8080" #返回上传图片网址
+host="http://127.0.0.1:8080/" #返回上传图片网址
 token="sd(4a*yu&dai#9d3,sd(4a*yu&dai#9d2" #token验证
-img_dir="/static/img" #图片保存路径
-file_dir="/static/file" #文件保存路径
+img_dir="static/img" #图片保存路径
+file_dir="static/file" #文件保存路径
 
 #阿里云配置
 [Aliyun]
-IsOpen=false #是否开启上传到阿里云OSS
+IsUpload =true #是否开启上传到阿里云OSS
+Endpoint="oss-cn-hangzhou.aliyuncs.com" #阿里云Endpoint（地域节点）
+AccessKeyId="LTAI5tESLtF2aggURZbNKdND" #阿里云OSS AccessKeyId
+AccessKeySecret="7c7oi8BwysQEiHArapl4mNbkuHNtBB" #阿里云OSS AccessKeySecret
+Region="oss-cn-hangzhou" #阿里云OSS Region
+Bucket="laozhu1986" #阿里云OSS Bucket
 
