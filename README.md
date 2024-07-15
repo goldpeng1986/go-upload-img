@@ -22,8 +22,8 @@
  {
     "code": "200",
     "data": {
-        "file_dir": "http://127.0.0.1:8080/static/file/20240715/44.png",
-        "file_name": "44.png"
+        "img_dir": "http://127.0.0.1:8080/static/file/20240715/44.png",
+        "img_name": "44.png"
     },
     "msg": "success"
 }
